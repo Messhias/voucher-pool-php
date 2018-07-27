@@ -1,6 +1,6 @@
-# Shinehub test
+# Voucher Pool PHP Example
 
-Code challenge to shinehub for job position
+Voucher Pool PHP Example.
 
 ## Getting Started
 
