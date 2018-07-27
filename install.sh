@@ -11,8 +11,8 @@ echo "Hi, $USER"
 echo "Installing containers."
 docker build .
 
-echo "Installing backend."
-cd backend && composer install && cp .env.example .env
+echo "Installing backend and running tests."
+cd backend && composer install && cp .env.example .env && php artisan migrate && ./vendor/bin/phpunit
 cd ..
 
 echo "Installing frontend."
