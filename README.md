@@ -48,7 +48,7 @@ sh tests.sh
 
 ## Authors
 
-* **Fabio William Conceição** - *Initial work* - [Messhias](https://github.com/MESSHIAS)
+* **Fabio William Conceição** - *Initial work* - [Messhias](https://github.com/messhias)
 
 ## Acknowledgments
 
