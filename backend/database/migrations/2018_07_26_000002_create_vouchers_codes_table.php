@@ -29,7 +29,7 @@ class CreateVouchersCodesTable extends Migration
             $table->string('code', 45);
             $table->timestamp('expiration_date');
             $table->tinyInteger('active')->default('1');
-            $table->timestamp('date_usage');
+            $table->timestamp('date_usage')->nullable();
 
             $table->index(["offer_id"], 'fk_special_offers_has_recipients_special_offers_idx');
 
