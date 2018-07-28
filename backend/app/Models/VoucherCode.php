@@ -22,14 +22,19 @@ class VoucherCode extends Model
     *
     * @var protected $table
     **/
-    protected $table = 'specials_offers';
+    protected $table = 'vouchers_codes';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [ 'name', 'discount_percentage' ];
+    protected $fillable = [
+        'name',
+        'discount_percentage',
+        'code',
+        'expiration_date'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -42,13 +42,13 @@ class CreateVouchersCodesTable extends Migration
 
             $table->foreign('offer_id', 'fk_special_offers_has_recipients_special_offers_idx')
                 ->references('id')->on('specials_offers')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('recipient_id', 'fk_special_offers_has_recipients_recipients1_idx')
                 ->references('id')->on('recipients')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

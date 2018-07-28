@@ -4,7 +4,7 @@
  * @author Fabio William Conceição
  * @since 1.1
  */
-class RecipientsTest extends TestCase
+class SpecialsOffersTest extends TestCase
 {
     /**
      * Turn up the tests
@@ -19,7 +19,7 @@ class RecipientsTest extends TestCase
     }
 
     /**
-     * Get all recipients of application.
+     * Get all special/offer of application.
      *
      *
      * @return bool the integer of the set mode used. FALSE if foo
@@ -31,7 +31,7 @@ class RecipientsTest extends TestCase
      */
     public function testCanGetRecipients()
     {
-        $this->json('GET', '/recipients')
+        $this->json('GET', '/special/offer')
             ->seeJson([
                 'code' => 200,
                 'status' => true
@@ -39,7 +39,7 @@ class RecipientsTest extends TestCase
     }
 
     /**
-     * Get one recipients of application.
+     * Get one special/offer of application.
      *
      *
      * @return bool the integer of the set mode used. FALSE if foo
@@ -52,7 +52,7 @@ class RecipientsTest extends TestCase
     public function testCanGetOneRecipients()
     {
         $id = rand(1,9999999);
-        $this->json('GET', "/recipients/{$id}" )
+        $this->json('GET', "/special/offer/{$id}" )
             ->seeJson([
                 'code' => 200,
                 'status' => true
@@ -60,7 +60,7 @@ class RecipientsTest extends TestCase
     }
 
     /**
-     * Create one recipients of application.
+     * Create one special/offer of application.
      *
      *
      * @return bool the integer of the set mode used. FALSE if foo
@@ -77,7 +77,7 @@ class RecipientsTest extends TestCase
                   str_repeat($this->getAlphaLetters(rand(1,25)), rand(1,20)).'@'.str_repeat($this->getAlphaLetters(rand(1,25)), rand(1,20)).'.com',
             'name'  => 'Fabio William Conceição'
         ];
-        $this->json('POST', "/recipients", $data)
+        $this->json('POST', "/special/offer", $data)
             ->seeJson([
                 'code' => 200,
                 'status' => true
@@ -85,7 +85,7 @@ class RecipientsTest extends TestCase
     }
 
     /**
-     * Update one recipients of application.
+     * Update one special/offer of application.
      *
      *
      * @return bool the integer of the set mode used. FALSE if foo
@@ -99,11 +99,10 @@ class RecipientsTest extends TestCase
     {
         $id = rand(1,9999999999);
         $data['data'] = [
-            'email' =>
-                  str_repeat($this->getAlphaLetters(rand(1,25)), rand(1,20)).'@'.str_repeat($this->getAlphaLetters(rand(1,25)), rand(1,20)).'.com',
-            'name'  => 'Fabio William Conceição'
+            'name' => 'Brutal special',
+            'discount_percentage' => 10
         ];
-        $this->json('PUT', "/recipients/{$id}", $data)
+        $this->json('PUT', "/special/offer/{$id}", $data)
             ->seeJson([
                 'code' => 200,
                 'status' => true
@@ -111,7 +110,7 @@ class RecipientsTest extends TestCase
     }
 
     /**
-     * Delete one recipients of application.
+     * Delete one special/offer of application.
      *
      *
      * @return bool the integer of the set mode used. FALSE if foo
@@ -124,7 +123,7 @@ class RecipientsTest extends TestCase
     public function testCanDeleteRecipients()
     {
         $id = rand(1, 99999);
-        $this->json('DELETE', "/recipients/{$id}")
+        $this->json('DELETE', "/special/offer/{$id}")
             ->seeJson([
                 'code' => 200,
                 'status' => true
