@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class VouchersCodeSeeder extends Seeder
 {
@@ -11,8 +12,13 @@ class VouchersCodeSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\VoucherCode::class, 50)->create()->each(function ($u) {
-            $u->save()->make();
-        });
+        for ($i=0; $i < 100; $i++) {
+            $generator = \Nubs\RandomNameGenerator\All::create();
+            DB::table('vouchers_codes')->insert([
+                'offer_id' => rand(1, 100),
+                'recipient_id' => rand(1, 100),
+                'code' => str_random(10)
+            ]);
+        }
     }
 }

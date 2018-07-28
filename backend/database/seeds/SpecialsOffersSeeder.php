@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SpecialsOffersSeeder extends Seeder
 {
@@ -11,8 +12,12 @@ class SpecialsOffersSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\SpecialOffer::class, 50)->create()->each(function ($u) {
-            $u->save()->make();
-        });
+        for ($i=0; $i < 100; $i++) {
+            $generator = \Nubs\RandomNameGenerator\All::create();
+            DB::table('specials_offers')->insert([
+                'name' => $generator->getName(),
+                'discount_percentage' => rand(1, 100)
+            ]);
+        }
     }
 }
