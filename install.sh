@@ -15,7 +15,7 @@ docker build .
 clear
 
 echo "Installing backend and running tests and seeders."
-composer install && cp .env.example .env && docker exec -it voucher_pool_php php artisan migrate && docker exec -it voucher_pool_php php artisan db:seed && ./vendor/bin/phpunit
+composer install && cp .env.example .env && docker exec -it voucher_pool_php php artisan migrate && docker exec -it voucher_pool_php php artisan db:seed && docker exec -it voucher_pool_php ./vendor/bin/phpunit
 cd ..
 
 # echo "Installing frontend."
