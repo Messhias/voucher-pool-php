@@ -15,7 +15,7 @@ class SpecialsOffersSeeder extends Seeder
         for ($i=0; $i < 100; $i++) {
             $generator = \Nubs\RandomNameGenerator\All::create();
             DB::table('specials_offers')->insert([
-                'name' => $generator->getName(),
+                'name' => $generator->getName() . ' - Promotion',
                 'discount_percentage' => rand(1, 100)
             ]);
         }
