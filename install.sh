@@ -7,10 +7,10 @@ echo "Installing your application."
 echo "Hi, $USER"
 
 cd backend
+docker build .
 
 docker-compose up -d
 echo "Installing containers."
-docker build .
 
 clear
 
