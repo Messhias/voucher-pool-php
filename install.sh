@@ -2,6 +2,9 @@
 
 clear
 
+#if you having problems with your composer path
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 echo "Installing your application."
 
 echo "Hi, $USER"
@@ -10,12 +13,9 @@ cd backend
 
 docker-compose up -d
 echo "Installing containers."
-docker build .
-
-clear
 
 echo "Installing backend and running tests and seeders."
-cd composer install && cp .env.example .env && docker exec -it voucher_pool_php php artisan migrate && docker exec -it voucher_pool_php php artisan db:seed && ./vendor/bin/phpunit
+composer install && cp .env.example .env && docker exec -it mainphp php artisan migrate && docker exec -it mainphp php artisan db:seed && ./vendor/bin/phpunit
 cd ..
 
 # echo "Installing frontend."

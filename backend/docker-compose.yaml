@@ -1,5 +1,5 @@
 web:
-    container_name: voucher_pool_web
+    container_name: webng
     image: nginx
     ports:
         - "80:80"
@@ -9,7 +9,7 @@ web:
     links:
         - php:php
 php:
-    container_name: voucher_pool_php
+    container_name: mainphp
     build: ./
     dockerfile: ./Dockerfile
     volumes:
@@ -17,7 +17,7 @@ php:
     links:
         - db
 db:
-    container_name: voucher_pool_db
+    container_name: dbmysql
     image: mysql:5.6
     volumes:
         - /var/lib/mysql
