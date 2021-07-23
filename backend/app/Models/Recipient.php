@@ -20,7 +20,7 @@ class Recipient extends Model
     /**
     * set model table
     *
-    * @var protected $table
+    * @var $table
     **/
     protected $table = 'recipients';
 
